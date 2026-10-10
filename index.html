@@ -5,116 +5,188 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fff7fb">
 <title>宝宝的表情包小屋</title>
+
 <style>
 :root {
   --pink: #f4b5d2;
-  --light: #fff7fb;
   --text: #574653;
   --muted: #a99aa5;
 }
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   color: var(--text);
-  background: linear-gradient(180deg, #fff2f8, #ffffff 55%, #fff7fb);
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
-    "Microsoft YaHei", sans-serif;
+  background: linear-gradient(
+    180deg,
+    #fff2f8,
+    #ffffff 55%,
+    #fff7fb
+  );
+  font-family: -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+
 header {
-  padding: 38px 18px 25px;
+  padding: 42px 18px 28px;
   text-align: center;
 }
+
 .eyebrow {
   color: #c17ca4;
   font-size: 11px;
   letter-spacing: 3px;
 }
-h1 { font-size: 27px; margin: 12px 0 8px; }
-.subtitle { font-size: 13px; color: var(--muted); }
-.container { max-width: 900px; margin: auto; padding: 0 15px 35px; }
+
+h1 {
+  font-size: 27px;
+  margin: 14px 0 9px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 15px 35px;
+}
+
 .search {
   width: 100%;
-  padding: 14px 16px;
+  padding: 17px;
   border: 1px solid #f1dce8;
-  border-radius: 16px;
+  border-radius: 20px;
   background: white;
-  font-size: 15px;
+  font-size: 16px;
   outline: none;
   color: var(--text);
 }
-.search:focus { border-color: var(--pink); }
+
+.search:focus {
+  border-color: var(--pink);
+}
+
 .filters {
   display: flex;
   gap: 9px;
   overflow-x: auto;
-  padding: 14px 0;
+  padding: 15px 0;
 }
+
 .filters button {
   flex-shrink: 0;
   border: 1px solid #f1dce8;
   background: white;
   border-radius: 30px;
-  padding: 9px 15px;
+  padding: 10px 17px;
   color: #887383;
+  font-size: 14px;
 }
+
 .filters button.active {
   background: #fce3ef;
   color: #a34f7c;
   border-color: #f4c5dc;
 }
-.count { font-size: 12px; color: var(--muted); margin: 3px 2px 14px; }
+
+.count {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 7px 2px 16px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 13px;
 }
+
 .card {
   min-width: 0;
   padding: 9px;
   border: 1px solid #f5e7ef;
-  border-radius: 18px;
-  background: rgba(255,255,255,.95);
+  border-radius: 20px;
+  background: rgba(255,255,255,.96);
   box-shadow: 0 5px 18px #a8799010;
 }
+
 .card img {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: contain;
   background: #fffafd;
-  border-radius: 12px;
+  border-radius: 14px;
 }
+
 .name {
-  font-size: 13px;
-  margin: 10px 2px;
+  font-size: 14px;
+  margin: 12px 2px 8px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
+
 .filename {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
   overflow-wrap: anywhere;
-  margin: 0 2px 10px;
+  margin: 0 2px 11px;
 }
-.actions { display: flex; gap: 6px; }
-.actions a, .actions button {
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.actions a,
+.actions button {
   flex: 1;
+  min-width: 0;
   text-align: center;
-  padding: 9px 3px;
+  padding: 10px 3px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #fce8f3;
   color: #9e527b;
   text-decoration: none;
   font-size: 12px;
 }
-.actions button { background: #f3eff3; color: #756775; }
-.empty { display: none; text-align: center; padding: 35px 5px; color: var(--muted); }
-footer { text-align: center; color: #b3a2af; font-size: 12px; padding: 28px 0 8px; }
+
+.actions button {
+  background: #f3eff3;
+  color: #756775;
+}
+
+.empty {
+  display: none;
+  text-align: center;
+  padding: 35px 5px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  color: #b3a2af;
+  font-size: 12px;
+  padding: 28px 0 8px;
+}
+
 @media (min-width: 620px) {
-  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+  }
 }
 </style>
 </head>
+
 <body>
 <header>
   <div class="eyebrow">MY LITTLE STICKER COLLECTION</div>
@@ -123,8 +195,12 @@ footer { text-align: center; color: #b3a2af; font-size: 12px; padding: 28px 0 8p
 </header>
 
 <main class="container">
-  <input id="search" class="search" type="search"
-    placeholder="搜索表情包……">
+  <input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="搜索表情包……"
+  >
 
   <nav class="filters">
     <button class="active" data-filter="all">全部收藏</button>
@@ -132,54 +208,78 @@ footer { text-align: center; color: #b3a2af; font-size: 12px; padding: 28px 0 8p
     <button data-filter="other">其他收藏</button>
   </nav>
 
-  <div class="count" id="count">共 4 张图片</div>
+  <div class="count" id="count">正在加载图片……</div>
   <section class="grid" id="grid"></section>
-  <div class="empty" id="empty">没有找到图片，换个关键词试试吧。</div>
-  <footer>Made with love · jswooy-oss/stickers</footer>
+  <div class="empty" id="empty"></div>
+
+  <footer>Made with love · 宝宝的表情包小屋</footer>
 </main>
 
 <script>
-const files = [
-  {
-    name: "收藏图片 01",
-    file: "Screenshot_2026-10-10-15-02-48-620_com.xingin.xhs.png",
-    category: "cute"
-  },
-  {
-    name: "收藏图片 02",
-    file: "Screenshot_2026-10-10-15-03-39-526_com.xingin.xhs.png",
-    category: "cute"
-  },
-  {
-    name: "收藏图片 03",
-    file: "Screenshot_2026-10-10-15-04-46-378_com.xingin.xhs.png",
-    category: "other"
-  },
-  {
-    name: "收藏图片 04",
-    file: "Screenshot_2026-10-10-15-05-09-139_com.xingin.xhs.png",
-    category: "other"
-  }
-];
+const API_URL =
+  "https://api.github.com/repos/jswooy-oss/stickers/contents/";
 
-const base =
+const IMAGE_BASE =
   "https://raw.githubusercontent.com/jswooy-oss/stickers/main/";
 
 const grid = document.getElementById("grid");
 const search = document.getElementById("search");
 const count = document.getElementById("count");
 const empty = document.getElementById("empty");
+
+let files = [];
 let currentFilter = "all";
+
+async function loadFiles() {
+  count.textContent = "正在加载表情包……";
+  empty.style.display = "none";
+
+  try {
+    const response = await fetch(API_URL, {
+      headers: {
+        Accept: "application/vnd.github+json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error("无法读取仓库");
+    }
+
+    const entries = await response.json();
+
+    files = entries
+      .filter(item =>
+        item.type === "file" &&
+        /\.(png|jpe?g|gif|webp|avif)$/i.test(item.name)
+      )
+      .map(item => ({
+        name: item.name.replace(/\.[^.]+$/, "")
+          .replace(/[_-]+/g, " "),
+        file: item.name,
+        category: "cute"
+      }));
+
+    render();
+  } catch (error) {
+    count.textContent = "图片列表暂时无法加载";
+    empty.textContent =
+      "请检查网络，稍后刷新页面再试。";
+    empty.style.display = "block";
+  }
+}
 
 function render() {
   const keyword = search.value.trim().toLowerCase();
 
   const result = files.filter(item => {
     const matchesFilter =
-      currentFilter === "all" || item.category === currentFilter;
+      currentFilter === "all" ||
+      item.category === currentFilter;
 
     const matchesSearch =
-      (item.name + " " + item.file).toLowerCase().includes(keyword);
+      (item.name + " " + item.file)
+        .toLowerCase()
+        .includes(keyword);
 
     return matchesFilter && matchesSearch;
   });
@@ -187,7 +287,9 @@ function render() {
   grid.innerHTML = "";
 
   result.forEach(item => {
-    const url = base + encodeURIComponent(item.file);
+    const url = IMAGE_BASE +
+      item.file.split("/").map(encodeURIComponent).join("/");
+
     const card = document.createElement("article");
     card.className = "card";
 
@@ -195,6 +297,10 @@ function render() {
     img.src = url;
     img.alt = item.name;
     img.loading = "lazy";
+
+    img.onerror = () => {
+      img.alt = "图片加载失败";
+    };
 
     const name = document.createElement("div");
     name.className = "name";
@@ -210,7 +316,7 @@ function render() {
     const view = document.createElement("a");
     view.href = url;
     view.target = "_blank";
-    view.rel = "noopener";
+    view.rel = "noopener noreferrer";
     view.textContent = "查看原图";
 
     const copy = document.createElement("button");
@@ -222,9 +328,12 @@ function render() {
         await navigator.clipboard.writeText(url);
         copy.textContent = "复制成功";
       } catch {
-        window.prompt("请手动复制图片链接：", url);
+        window.prompt("请长按复制图片链接：", url);
       }
-      setTimeout(() => copy.textContent = "复制链接", 1500);
+
+      setTimeout(() => {
+        copy.textContent = "复制链接";
+      }, 1500);
     });
 
     actions.append(view, copy);
@@ -233,7 +342,15 @@ function render() {
   });
 
   count.textContent = "找到 " + result.length + " 张图片";
-  empty.style.display = result.length ? "none" : "block";
+
+  if (result.length === 0) {
+    empty.textContent = keyword
+      ? "没有找到图片，换个关键词试试吧。"
+      : "仓库里还没有图片哦。";
+    empty.style.display = "block";
+  } else {
+    empty.style.display = "none";
+  }
 }
 
 document.querySelectorAll("[data-filter]").forEach(button => {
@@ -249,7 +366,8 @@ document.querySelectorAll("[data-filter]").forEach(button => {
 });
 
 search.addEventListener("input", render);
-render();
+
+loadFiles();
 </script>
 </body>
   </html>
